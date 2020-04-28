@@ -52,7 +52,7 @@ class Api():
 
         response = self.http.post(
             f'{self.server}/api/' + method,
-            data=params
+            json=params
         ).json()
 
         if response['result']:
@@ -85,8 +85,4 @@ class ApiMethod():
         )
 
     def __call__(self, **kwargs):
-        for k, v in kwargs.items():
-            if isinstance(v, (list, tuple)):
-                kwargs[k] = ','.join(str(x) for x in v)
-
         return self._api.method(self._method, kwargs)
