@@ -9,7 +9,7 @@ class Api():
         self.login = login
         self.password = password
         self.key = read_key
-        self.server = server or 'https://3wifi.stascorp.com/'
+        self.server = server or 'https://3wifi.stascorp.com'
 
         self.http = requests.Session()
 
