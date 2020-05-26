@@ -2,17 +2,30 @@
 class ApiError(Exception):
     pass
 
-class AuthError(ApiError):
+
+class ClientError(Exception):
     pass
 
-class AccountBlocked(AuthError):
+
+class AuthError(ApiError, ClientError):
     pass
 
-class LoginRequired(AuthError):
+
+class AccountBlocked(AuthError, ClientError):
     pass
 
-class PasswordRequired(AuthError):
+
+class LoginRequired(AuthError, ClientError):
     pass
+
+
+class PasswordRequired(AuthError, ClientError):
+    pass
+
 
 class NoKeysReceived(AuthError):
+    pass
+
+
+class LowLevelError(ClientError):
     pass

@@ -2,7 +2,8 @@
 import requests
 
 from .exceptions import (ApiError, AuthError, AccountBlocked,
-                         LoginRequired, PasswordRequired)
+                         LoginRequired, PasswordRequired, NoKeysReceived)
+
 
 class Api():
     def __init__(self, login=None, password=None, read_key=None, server=None):

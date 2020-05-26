@@ -13,7 +13,7 @@ https://github.com/drygdryg/py3wifi.git
 cd py3wifi
 python setup.py install
 ```
-## Usage
+## API usage
 ### Authorization
 ```python
 import py3wifi
@@ -37,3 +37,14 @@ Or:
 {'4C:F2:BF:30:81:A4': [{'time': '2017-07-27 10:39:43', 'bssid': '4C:F2:BF:30:81:A4', 'essid': 'IDNet-41', 'sec': 'WPA2', 'key': '87059894216', 'wps': '12345678', 'lat': 54.89953995, 'lon': 69.14550781}]}
 ```
 See https://3wifi.stascorp.com/apidoc for detailed API guide.
+## Usage of 3WiFi AJAX interface
+```python
+import py3wifi
+
+client = py3wifi.Client(login='mylogin', password='mypassword')
+client.auth()
+```
+```python
+>>> client.request('find', {'bssid': '04:95:E6:6C:36:*', 'essid': 'Tenda_◯', 'wps': '□□□□□□□□'})
+{'result': True, 'data': [{'id': 93806549, 'time': '2019-12-08 17:30:55', 'comment': 'Router Scan', 'range': '192.168.0.0/16', 'nowifi': False, 'hidden': False, 'bssid': '04:95:E6:6C:36:50', 'essid': 'Tenda_6C3650', 'sec': 'None', 'key': '<empty>', 'wps': '21847080', 'lat': 44.52231216, 'lon': 33.59743881, 'fav': False}], 'found': 1, 'page': {'current': 1, 'count': 1}, 'time': 0.013512849807739}
+```
